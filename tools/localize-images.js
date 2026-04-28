@@ -7,7 +7,7 @@ const { URL } = require("url");
 
 const ROOT = path.resolve(__dirname, "..");
 const CONTENT_FILE = path.join(ROOT, "public", "data", "article-content.html");
-const IMAGE_DIR = path.join(ROOT, "public", "assets", "article-images");
+const IMAGE_DIR = path.join(ROOT, "docs", "public", "article-images");
 const MAX_REDIRECTS = 5;
 
 function getExtFromUrl(rawUrl) {
@@ -94,7 +94,7 @@ async function main() {
   for (const url of urls) {
     const name = fileNameFor(url);
     const target = path.join(IMAGE_DIR, name);
-    const localSrc = `./assets/article-images/${name}`;
+    const localSrc = `/article-images/${name}`;
     try {
       if (!fs.existsSync(target)) {
         const data = await requestBuffer(url);

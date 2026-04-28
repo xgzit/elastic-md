@@ -2,17 +2,20 @@
   "name": "elastic-md",
   "version": "1.0.0",
   "description": "Elasticsearch学习笔记文档站",
-  "main": "index.js",
   "scripts": {
     "extract": "node tools/extract-article.js",
     "localize:images": "node tools/localize-images.js",
-    "build": "node tools/extract-article.js && node tools/localize-images.js && vite build && node tools/copy-static-to-dist.js",
-    "dev": "vite --host 127.0.0.1 --port 5178",
-    "preview": "vite preview --host 127.0.0.1 --port 5178",
-    "start": "vite --host 127.0.0.1 --port 5178"
+    "migrate:docs": "node tools/vitepress-migration/index.js",
+    "build": "node tools/clean-vitepress-dist.js && node tools/extract-article.js && node tools/localize-images.js && node tools/vitepress-migration/index.js && vitepress build docs && node tools/copy-vitepress-dist.js",
+    "dev": "node tools/extract-article.js && node tools/localize-images.js && node tools/vitepress-migration/index.js && vitepress dev docs --host 127.0.0.1 --port 5178",
+    "preview": "vitepress preview docs --host 127.0.0.1 --port 5178",
+    "start": "npm run dev"
   },
   "private": true,
   "devDependencies": {
-    "vite": "^8.0.10"
+    "turndown": "^7.2.4",
+    "turndown-plugin-gfm": "^1.0.2",
+    "vite": "^8.0.10",
+    "vitepress": "^1.6.4"
   }
 }

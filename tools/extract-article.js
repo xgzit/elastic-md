@@ -5,8 +5,6 @@ const ROOT = path.resolve(__dirname, "..");
 const INPUT_FILE = path.join(ROOT, "article.html");
 const OUTPUT_DIR = path.join(ROOT, "public", "data");
 const OUTPUT_HTML = path.join(OUTPUT_DIR, "article-content.html");
-const OUTPUT_META = path.join(OUTPUT_DIR, "meta.json");
-const SOURCE_URL = "https://blog.csdn.net/u011863024/article/details/115721328";
 
 function extractContentViews(html) {
   const openMatch = html.match(
@@ -62,27 +60,13 @@ function cleanContent(content) {
   return output;
 }
 
-function extractTitle(html) {
-  const titleMatch = html.match(/<title>([\s\S]*?)<\/title>/i);
-  return titleMatch ? titleMatch[1].trim() : "Elasticsearch学习笔记";
-}
-
 function main() {
   const source = fs.readFileSync(INPUT_FILE, "utf8");
   const rawContent = extractContentViews(source);
   const cleanedContent = cleanContent(rawContent);
-  const title = extractTitle(source);
 
   fs.mkdirSync(OUTPUT_DIR, { recursive: true });
   fs.writeFileSync(OUTPUT_HTML, cleanedContent, "utf8");
-
-  const meta = {
-    title,
-    sourceUrl: SOURCE_URL,
-    extractedAt: new Date().toISOString(),
-    contentLength: cleanedContent.length,
-  };
-  fs.writeFileSync(OUTPUT_META, JSON.stringify(meta, null, 2), "utf8");
 
   console.log(
     `Extracted content saved: ${path.relative(ROOT, OUTPUT_HTML)} (${cleanedContent.length} chars)`
