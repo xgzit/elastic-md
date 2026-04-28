@@ -2,8 +2,8 @@
 
 ## 项目是什么
 
-这是一个基于 VitePress 的 Elasticsearch 学习笔记文档站项目。源码中的文章内容会被提取、处理并生成可浏览的文档页面。
-演示站：`https://xgzjt.top`
+这是一个基于 VitePress 的 Elasticsearch 学习笔记文档站项目。源码中的文章内容会被提取、处理并生成可浏览的文档页面。  
+演示地址：[演示站https://xgzjt.top](https://xgzjt.top)
 
 ## 怎么用
 
