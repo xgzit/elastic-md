@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Elastic Notes">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f766e" />
+      <stop offset="100%" stop-color="#134e4a" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5eead4" />
+      <stop offset="100%" stop-color="#2dd4bf" />
+    </linearGradient>
+  </defs>
+  <rect x="12" y="12" width="232" height="232" rx="52" fill="url(#bg)" />
+  <circle cx="82" cy="86" r="22" fill="url(#accent)" />
+  <path d="M124 74h62a10 10 0 0 1 0 20h-62a10 10 0 0 1 0-20Zm0 44h72a10 10 0 0 1 0 20h-72a10 10 0 0 1 0-20Zm-42 50h114a10 10 0 0 1 0 20H82a10 10 0 0 1 0-20Z" fill="#ecfeff" opacity=".95" />
+  <text x="54" y="154" font-size="64" font-family="Segoe UI, Arial, sans-serif" font-weight="800" fill="#99f6e4">ES</text>
+</svg>

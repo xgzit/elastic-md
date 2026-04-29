@@ -1,7 +1,12 @@
 import DefaultTheme from "vitepress/theme";
 import type { Theme } from "vitepress";
 import "./custom.css";
-import { setupImageFallbackPanel } from "./runtime";
+import {
+  setupCodeBlocksEnhancements,
+  setupDownloadGuards,
+  setupImageEnhancements,
+  setupImageFallbackPanel,
+} from "./runtime";
 
 const theme: Theme = {
   extends: DefaultTheme,
@@ -10,6 +15,9 @@ const theme: Theme = {
       const mount = () =>
         setTimeout(() => {
           setTimeout(() => setupImageFallbackPanel(), 0);
+          setTimeout(() => setupImageEnhancements(), 0);
+          setTimeout(() => setupCodeBlocksEnhancements(), 0);
+          setTimeout(() => setupDownloadGuards(), 0);
         }, 0);
       const previous = router.onAfterRouteChanged;
       router.onAfterRouteChanged = (...args) => {
