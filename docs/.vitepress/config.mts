@@ -7,7 +7,7 @@ export default defineConfig({
   lang: "zh-CN",
   head: [["link", { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }]],
   ignoreDeadLinks: true,
-  cleanUrls: true,
+  cleanUrls: false,
   srcExclude: ["**/README.md"],
   lastUpdated: false,
   markdown: {
